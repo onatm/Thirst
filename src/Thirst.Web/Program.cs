@@ -1,6 +1,4 @@
-﻿using Nancy.Hosting.Self;
-using Thirst.Web.Configuration;
-using Topshelf;
+﻿using Topshelf;
 
 namespace Thirst.Web
 {
@@ -23,18 +21,8 @@ namespace Thirst.Web
                 {
                     var settings = WebSettings.Current();
 
-                    var bootstrapper = new Bootstrapper();
-
-                    var nancyHost = new NancyHost(bootstrapper, new HostConfiguration
-                    {
-                        UrlReservations = new UrlReservations
-                        {
-                            CreateAutomatically = true
-                        },
-                    }, settings.BaseUrlListArray());
-
-                    h.ConstructUsing(() => new HostService(nancyHost));
-                    h.WhenStarted(s => s.Start());
+                    h.ConstructUsing(() => new HostService());
+                    h.WhenStarted(s => s.Start(settings.BaseUrls.Split(',')));
                     h.WhenStopped(s => s.Stop());
                 });
 

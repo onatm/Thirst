@@ -1,7 +1,7 @@
 ﻿using Nancy.Bootstrappers.Autofac;
 using Nancy.Conventions;
 
-namespace Thirst.Web.Configuration
+namespace Thirst.Web
 {
     public class Bootstrapper : AutofacNancyBootstrapper
     {
