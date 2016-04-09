@@ -9,10 +9,11 @@
     <title>Thist Web - @ViewBag.Title</title>
 </head>
 <body lang="tr">
-
     <div id="applicationHost" class="wrapper">
         @RenderBody()
     </div>
-
+    <script src="Scripts/jquery-1.6.4.min.js"></script>
+    <script src="Scripts/jquery.signalR-2.2.0.min.js"></script>
+    @RenderSection("Scripts", false)
 </body>
 </html>

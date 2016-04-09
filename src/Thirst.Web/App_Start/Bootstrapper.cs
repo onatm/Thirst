@@ -15,6 +15,8 @@ namespace Thirst.Web
                 string.Concat("Views/", context.ModuleName + "/" + context.ModulePath, viewname));
 
             conventions.ViewLocationConventions.Add((viewName, model, context) => string.Concat("Views/", viewName));
+
+            conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("Scripts", @"Scripts"));
         }
     }
 }

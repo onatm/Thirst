@@ -4,9 +4,10 @@ namespace Thirst.Web
 {
     public class Startup
     {
-        public void Configuration(IAppBuilder appBuilder)
+        public void Configuration(IAppBuilder app)
         {
-            appBuilder.UseNancy(options => options.Bootstrapper = new Bootstrapper());
+            app.MapSignalR();
+            app.UseNancy(options => options.Bootstrapper = new Bootstrapper());
         }  
     }
 }

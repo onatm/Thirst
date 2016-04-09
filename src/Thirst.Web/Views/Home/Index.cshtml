@@ -5,3 +5,23 @@
 }
 
 <h2>@ViewBag.Title</h2>
+<div id="realtime">
+    <p id="message"></p>
+</div>
+
+@section Scripts{
+    <script src="signalr/hubs"></script>
+    <script type="text/javascript">
+        $(function () {
+            var thirstHub = $.connection.thirstHub;
+
+            thirstHub.client.print = function (message) {
+                $('#message').text(message);
+            };
+
+            $.connection.hub.start().done(function () {
+                thirstHub.server.welcome();
+            });
+        });
+    </script>
+}
