@@ -11,6 +11,7 @@ using Thirst.Core.Services;
 
 namespace Thirst.Core.UnitTests.When_handling_inspect_services_message
 {
+    [TestFixture]
     public class When_handling_empty_inspect_services_message : TestKit
     {
         private RunningServices runningServices;
