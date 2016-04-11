@@ -11,10 +11,21 @@ using Thirst.Core.Services;
 
 namespace Thirst.Core.UnitTests.When_handling_inspect_services_message
 {
-    [TestFixture]
+    [TestFixture(true)]
+    [TestFixture(false)]
     public class When_handling_empty_inspect_services_message : TestKit
     {
+        private readonly IEnumerable<string> serviceNames;
+
         private RunningServices runningServices;
+
+        public When_handling_empty_inspect_services_message(bool isNull = false)
+        {
+            if (!isNull)
+            {
+                serviceNames = new List<string>();
+            }
+        }
 
         [TestFixtureSetUp]
         public void TestFixtureSetUp()
@@ -25,7 +36,7 @@ namespace Thirst.Core.UnitTests.When_handling_inspect_services_message
 
             var agentActor = Sys.ActorOf(Props.Create(() => new AgentActor(mockProcessService.Object)));
 
-            agentActor.Tell(new InspectServices(new List<string>()));
+            agentActor.Tell(new InspectServices(serviceNames));
 
             runningServices = ExpectMsg<RunningServices>();
         }

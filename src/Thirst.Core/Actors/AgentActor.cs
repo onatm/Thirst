@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Akka.Actor;
 using Thirst.Core.Messages;
@@ -14,7 +15,16 @@ namespace Thirst.Core.Actors
             {
                 var processes = processService.GetProcessNames();
 
-                var requestedServices = processes.Intersect(m.ServiceNames).ToList();
+                IEnumerable<string> requestedServices;
+
+                if (m.ServiceNames == null)
+                {
+                    requestedServices = new List<string>();
+                }
+                else
+                {
+                    requestedServices = processes.Intersect(m.ServiceNames);
+                }
 
                 var runningServices = new RunningServices(Environment.MachineName, requestedServices);
 
