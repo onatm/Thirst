@@ -7,8 +7,8 @@
     <ProjectGuid>{C7DD1139-267A-4738-AE9D-5A95426F856F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Thirst.Shared</RootNamespace>
-    <AssemblyName>Thirst.Shared</AssemblyName>
+    <RootNamespace>Thirst.Core</RootNamespace>
+    <AssemblyName>Thirst.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>

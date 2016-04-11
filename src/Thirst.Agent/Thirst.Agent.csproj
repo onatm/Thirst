@@ -93,9 +93,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Thirst.Shared\Thirst.Shared.csproj">
+    <ProjectReference Include="..\Thirst.Core\Thirst.Core.csproj">
       <Project>{c7dd1139-267a-4738-ae9d-5a95426f856f}</Project>
-      <Name>Thirst.Shared</Name>
+      <Name>Thirst.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

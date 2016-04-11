@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thirst.Agent", "src\Thirst.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thirst.Master", "src\Thirst.Master\Thirst.Master.csproj", "{AA662323-85AE-4CE2-83A6-87806566A6D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thirst.Shared", "src\Thirst.Shared\Thirst.Shared.csproj", "{C7DD1139-267A-4738-AE9D-5A95426F856F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thirst.Core", "src\Thirst.Core\Thirst.Core.csproj", "{C7DD1139-267A-4738-AE9D-5A95426F856F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5520653E-0453-4E75-BEF8-4A8513F8D3EE}"
 	ProjectSection(SolutionItems) = preProject

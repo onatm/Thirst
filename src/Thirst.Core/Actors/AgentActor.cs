@@ -2,9 +2,9 @@
 using System.Diagnostics;
 using System.Linq;
 using Akka.Actor;
-using Thirst.Shared.Messages;
+using Thirst.Core.Messages;
 
-namespace Thirst.Shared.Actors
+namespace Thirst.Core.Actors
 {
     public class AgentActor : ReceiveActor
     {

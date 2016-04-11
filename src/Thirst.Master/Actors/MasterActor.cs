@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Akka.Actor;
 using Akka.Event;
-using Thirst.Shared.Messages;
+using Thirst.Core.Messages;
 
 namespace Thirst.Master.Actors
 {

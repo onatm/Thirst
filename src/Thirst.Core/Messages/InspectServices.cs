@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Thirst.Shared.Messages
+namespace Thirst.Core.Messages
 {
     public class InspectServices
     {
