@@ -18,6 +18,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{552065
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thirst.Web", "src\Thirst.Web\Thirst.Web.csproj", "{782D4B0B-DA85-489F-AF27-E5A7EEFC9D96}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".tests", ".tests", "{38359507-0B59-49AA-B01A-386FA4E5A6B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thirst.Core.UnitTests", "src\tests\Thirst.Core.UnitTests\Thirst.Core.UnitTests.csproj", "{FBB15B03-AD04-4CF0-B39B-6434C2CE0FCA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,8 +44,15 @@ Global
 		{782D4B0B-DA85-489F-AF27-E5A7EEFC9D96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{782D4B0B-DA85-489F-AF27-E5A7EEFC9D96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{782D4B0B-DA85-489F-AF27-E5A7EEFC9D96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBB15B03-AD04-4CF0-B39B-6434C2CE0FCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBB15B03-AD04-4CF0-B39B-6434C2CE0FCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBB15B03-AD04-4CF0-B39B-6434C2CE0FCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBB15B03-AD04-4CF0-B39B-6434C2CE0FCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FBB15B03-AD04-4CF0-B39B-6434C2CE0FCA} = {38359507-0B59-49AA-B01A-386FA4E5A6B7}
 	EndGlobalSection
 EndGlobal

@@ -1,20 +1,20 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Linq;
 using Akka.Actor;
 using Thirst.Core.Messages;
+using Thirst.Core.Services;
 
 namespace Thirst.Core.Actors
 {
     public class AgentActor : ReceiveActor
     {
-        public AgentActor()
+        public AgentActor(IProcessService processService)
         {
             Receive<InspectServices>(m =>
             {
-                var processes = Process.GetProcesses();
+                var processes = processService.GetProcessNames();
 
-                var requestedServices = processes.Select(p => p.ProcessName).Intersect(m.ServiceNames).ToList();
+                var requestedServices = processes.Intersect(m.ServiceNames).ToList();
 
                 var runningServices = new RunningServices(Environment.MachineName, requestedServices);
 
