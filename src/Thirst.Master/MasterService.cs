@@ -1,7 +1,6 @@
 ﻿using Akka.Actor;
 using Akka.Routing;
 using Thirst.Core.Actors;
-using Thirst.Master.Actors;
 using Topshelf;
 
 namespace Thirst.Master

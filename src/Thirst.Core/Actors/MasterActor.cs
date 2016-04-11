@@ -5,7 +5,7 @@ using Akka.Actor;
 using Akka.Event;
 using Thirst.Core.Messages;
 
-namespace Thirst.Master.Actors
+namespace Thirst.Core.Actors
 {
     public class MasterActor : ReceiveActor
     {
