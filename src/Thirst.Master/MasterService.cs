@@ -1,6 +1,7 @@
 ﻿using Akka.Actor;
 using Akka.Routing;
 using Thirst.Core.Actors;
+using Thirst.Core.Services;
 using Topshelf;
 
 namespace Thirst.Master
@@ -13,7 +14,8 @@ namespace Thirst.Master
         {
             ClusterSystem = ActorSystem.Create("Thirst");
 
-            var broadcaster = ClusterSystem.ActorOf(Props.Create(() => new AgentActor()).WithRouter(FromConfig.Instance), "commander");
+            var broadcaster =
+                ClusterSystem.ActorOf(Props.Create(() => new AgentActor(new ProcessService())).WithRouter(FromConfig.Instance), "commander");
 
             ClusterSystem.ActorOf(Props.Create(() => new MasterActor(broadcaster)), "master");
 
