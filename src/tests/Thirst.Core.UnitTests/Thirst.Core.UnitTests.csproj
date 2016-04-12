@@ -75,6 +75,8 @@
     <Compile Include="Agent\When_handling_inspect_services_message\with_more_than_one_expected_services\and_all_of_them_are_present.cs" />
     <Compile Include="Agent\When_handling_inspect_services_message\with_one_expected_service\and_it_is_not_present.cs" />
     <Compile Include="Agent\When_handling_inspect_services_message\with_one_expected_service\and_it_is_present.cs" />
+    <Compile Include="Master\When_handling_inspect_services_message.cs" />
+    <Compile Include="Master\When_handling_running_services_message.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +89,7 @@
       <Name>Thirst.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

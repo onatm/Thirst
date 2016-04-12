@@ -1,24 +1,29 @@
-using System.Linq;
 using Akka.Actor;
-using Akka.Event;
 using Thirst.Core.Messages;
 
 namespace Thirst.Core.Actors
 {
     public class MasterActor : ReceiveActor
     {
-        private readonly ILoggingAdapter logger = Context.GetLogger();
-
         private readonly IActorRef masterBroadcaster;
+
+        private IActorRef lastRequester;
 
         public MasterActor(IActorRef masterBroadcaster)
         {
             this.masterBroadcaster = masterBroadcaster;
-            Context.Watch(this.masterBroadcaster);
+
+            Context.Watch(masterBroadcaster);
+
+            Receive<InspectServices>(m =>
+            {
+                lastRequester = Sender;
+                masterBroadcaster.Tell(m);
+            });
 
             Receive<RunningServices>(m =>
             {
-                logger.Info("Hostname: {0}, Services: {1}", m.HostName, m.ServiceNames.Aggregate((x, y) => x + ", " + y));
+                lastRequester.Tell(m);
             });
         }
 
