@@ -1,4 +1,6 @@
-﻿using Owin;
+﻿using Akka.Actor;
+using Owin;
+using Thirst.Web.Actors;
 
 namespace Thirst.Web
 {
@@ -8,6 +10,8 @@ namespace Thirst.Web
         {
             app.MapSignalR();
             app.UseNancy(options => options.Bootstrapper = new Bootstrapper());
-        }  
+
+            ActorSystemRefs.ActorSystem = ActorSystem.Create("Thirst");
+        }
     }
 }
