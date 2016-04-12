@@ -26,7 +26,7 @@ namespace Thirst.Core.Actors
                     requestedServices = processes.Intersect(m.ServiceNames);
                 }
 
-                var runningServices = new RunningServices(Environment.MachineName, requestedServices);
+                var runningServices = new RunningServices(Environment.MachineName, requestedServices.ToList());
 
                 Sender.Tell(runningServices);
             });
