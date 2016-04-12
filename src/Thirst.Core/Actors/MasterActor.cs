@@ -12,7 +12,6 @@ namespace Thirst.Core.Actors
         private readonly ILoggingAdapter logger = Context.GetLogger();
 
         private readonly IActorRef masterBroadcaster;
-        private ICancelable broadcastTask;
 
         public MasterActor(IActorRef masterBroadcaster)
         {
@@ -25,19 +24,8 @@ namespace Thirst.Core.Actors
             });
         }
 
-        protected override void PreStart()
-        {
-            broadcastTask =
-                Context.System.Scheduler.ScheduleTellRepeatedlyCancelable(
-                    TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(10), masterBroadcaster, new InspectServices(new List<string> { "Thirst.Agent.vshost" }), Context.Self);
-
-            base.PreStart();
-        }
-
         protected override void PostStop()
         {
-            broadcastTask.Cancel();
-
             Context.Stop(masterBroadcaster);
 
             base.PostStop();
