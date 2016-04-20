@@ -13,9 +13,9 @@ namespace Thirst.Agent
         {
             HostFactory.Run(x =>
             {
-                x.SetServiceName("Agent");
-                x.SetDisplayName("Thirst Agent");
-                x.SetDescription("Thirst Process Monitoring - Thirst Agent.");
+                x.SetServiceName("Thirst.Agent");
+                x.SetDisplayName("Thirst Agent - Agent Node");
+                x.SetDescription("Thirst process monitoring tool");
 
                 x.UseAssemblyInfoForServiceInfo();
                 x.RunAsLocalSystem();
