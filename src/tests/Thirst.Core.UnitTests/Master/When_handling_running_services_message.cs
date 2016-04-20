@@ -8,7 +8,7 @@ using Thirst.Core.Messages;
 
 namespace Thirst.Core.UnitTests.Master
 {
-    [TestFixture]
+    [TestFixture, Ignore]
     public class When_handling_running_services_message : TestKit
     {
         private RunningServices runningServices;
