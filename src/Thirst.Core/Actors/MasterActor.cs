@@ -7,8 +7,6 @@ namespace Thirst.Core.Actors
     {
         private readonly IActorRef masterBroadcaster;
 
-        private IActorRef lastRequester;
-
         public MasterActor(IActorRef masterBroadcaster)
         {
             this.masterBroadcaster = masterBroadcaster;
@@ -17,13 +15,12 @@ namespace Thirst.Core.Actors
 
             Receive<InspectServices>(m =>
             {
-                lastRequester = Sender;
                 masterBroadcaster.Tell(m);
             });
 
             Receive<RunningServices>(m =>
             {
-                lastRequester.Tell(m);
+
             });
         }
 

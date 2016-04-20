@@ -14,8 +14,8 @@ namespace Thirst.Web
             HostFactory.Run(x =>
             {
                 x.SetServiceName("Thirst.Web");
-                x.SetDisplayName("Thirst Web");
-                x.SetDescription("Thirst Process Monitoring - Thirst Web.");
+                x.SetDisplayName("Thirst Web - Seed Node");
+                x.SetDescription("Thirst process monitoring tool");
 
                 x.Service<IHostService>(h =>
                 {
