@@ -1,12 +1,16 @@
 ﻿using Microsoft.AspNet.SignalR;
+using Thirst.Core.Hubs;
+using Thirst.Core.Messages;
 
 namespace Thirst.Web.Hubs
 {
-    public class ThirstHub : Hub
+    public class ThirstHub : Hub, IThirstHub
     {
-        public void Welcome()
+        public void SendRunningServices(RunningServices message)
         {
-            Clients.All.print("i'm thirsty!");
+            var context = GlobalHost.ConnectionManager.GetHubContext<ThirstHub>();
+
+            context.Clients.All.getRunningServices(message);
         }
     }
 }

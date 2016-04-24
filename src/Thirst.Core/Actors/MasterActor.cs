@@ -1,4 +1,5 @@
 using Akka.Actor;
+using Thirst.Core.Hubs;
 using Thirst.Core.Messages;
 
 namespace Thirst.Core.Actors
@@ -6,10 +7,12 @@ namespace Thirst.Core.Actors
     public class MasterActor : ReceiveActor
     {
         private readonly IActorRef masterBroadcaster;
+        private readonly IThirstHub thirstHub;
 
-        public MasterActor(IActorRef masterBroadcaster)
+        public MasterActor(IActorRef masterBroadcaster, IThirstHub thirstHub)
         {
             this.masterBroadcaster = masterBroadcaster;
+            this.thirstHub = thirstHub;
 
             Context.Watch(masterBroadcaster);
 
@@ -20,7 +23,7 @@ namespace Thirst.Core.Actors
 
             Receive<RunningServices>(m =>
             {
-
+                this.thirstHub.SendRunningServices(m);
             });
         }
 

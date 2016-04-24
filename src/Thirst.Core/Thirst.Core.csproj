@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="Actors\AgentActor.cs" />
     <Compile Include="Actors\MasterActor.cs" />
+    <Compile Include="Hubs\IThirstHub.cs" />
     <Compile Include="Messages\InspectServices.cs" />
     <Compile Include="Messages\RunningServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

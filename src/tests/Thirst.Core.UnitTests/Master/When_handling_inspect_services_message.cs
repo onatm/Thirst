@@ -4,6 +4,7 @@ using Akka.TestKit.NUnit;
 using Moq;
 using NUnit.Framework;
 using Thirst.Core.Actors;
+using Thirst.Core.Hubs;
 using Thirst.Core.Messages;
 
 namespace Thirst.Core.UnitTests.Master
@@ -25,7 +26,7 @@ namespace Thirst.Core.UnitTests.Master
 
             expectedInspectServicesMessage = new InspectServices(new List<string> { "ExpectedProcessName" });
 
-            masterActor = Sys.ActorOf(Props.Create(() => new MasterActor(mockMasterBroadcast.Object)));
+            masterActor = Sys.ActorOf(Props.Create(() => new MasterActor(mockMasterBroadcast.Object, new Mock<IThirstHub>().Object)));
 
             masterActor.Tell(expectedInspectServicesMessage);
 
