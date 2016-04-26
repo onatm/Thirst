@@ -11,24 +11,24 @@ namespace Thirst.Core.Actors
     {
         public AgentActor(IProcessService processService)
         {
-            Receive<InspectServices>(m =>
+            Receive<InspectProcesses>(m =>
             {
                 var processes = processService.GetProcessNames();
 
-                IEnumerable<string> requestedServices;
+                IEnumerable<string> requestedProcesses;
 
-                if (m.ServiceNames == null)
+                if (m.ProcessNames == null)
                 {
-                    requestedServices = new List<string>();
+                    requestedProcesses = new List<string>();
                 }
                 else
                 {
-                    requestedServices = processes.Intersect(m.ServiceNames);
+                    requestedProcesses = processes.Intersect(m.ProcessNames);
                 }
 
-                var runningServices = new RunningServices(Environment.MachineName, requestedServices.ToList());
+                var runningProcesses = new RunningProcesses(Environment.MachineName, requestedProcesses.ToList());
 
-                Sender.Tell(runningServices);
+                Sender.Tell(runningProcesses);
             });
         }
     }

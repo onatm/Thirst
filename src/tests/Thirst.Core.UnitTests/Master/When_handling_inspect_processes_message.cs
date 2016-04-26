@@ -10,12 +10,12 @@ using Thirst.Core.Messages;
 namespace Thirst.Core.UnitTests.Master
 {
     [TestFixture]
-    public class When_handling_inspect_services_message : TestKit
+    public class When_handling_inspect_processes_message : TestKit
     {
         private IActorRef masterActor;
         private Mock<IActorRef> mockMasterBroadcast;
 
-        private InspectServices expectedInspectServicesMessage;
+        private InspectProcesses expectedInspectProcessesMessage;
 
         [TestFixtureSetUp]
         public void TestFixtureSetUp()
@@ -24,11 +24,11 @@ namespace Thirst.Core.UnitTests.Master
             mockMasterBroadcast.As<IInternalActorRef>();
             mockMasterBroadcast.Setup(x => x.Equals(It.IsAny<IActorRef>())).Returns(true);
 
-            expectedInspectServicesMessage = new InspectServices(new List<string> { "ExpectedProcessName" });
+            expectedInspectProcessesMessage = new InspectProcesses(new List<string> { "ExpectedProcessName" });
 
             masterActor = Sys.ActorOf(Props.Create(() => new MasterActor(mockMasterBroadcast.Object, new Mock<IThirstHub>().Object)));
 
-            masterActor.Tell(expectedInspectServicesMessage);
+            masterActor.Tell(expectedInspectProcessesMessage);
 
             ExpectNoMsg();
         }
@@ -36,7 +36,7 @@ namespace Thirst.Core.UnitTests.Master
         [Test]
         public void it_should_forward_the_message()
         {
-            mockMasterBroadcast.Verify(x => x.Tell(expectedInspectServicesMessage, masterActor));
+            mockMasterBroadcast.Verify(x => x.Tell(expectedInspectProcessesMessage, masterActor));
         }
     }
 }

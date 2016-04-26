@@ -75,8 +75,8 @@
     <Compile Include="Actors\AgentActor.cs" />
     <Compile Include="Actors\MasterActor.cs" />
     <Compile Include="Hubs\IThirstHub.cs" />
-    <Compile Include="Messages\InspectServices.cs" />
-    <Compile Include="Messages\RunningServices.cs" />
+    <Compile Include="Messages\InspectProcesses.cs" />
+    <Compile Include="Messages\RunningProcesses.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ProcessService.cs" />
   </ItemGroup>

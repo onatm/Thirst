@@ -8,14 +8,14 @@ namespace Thirst.Web.Hubs
 {
     public class ThirstHub : Hub, IThirstHub
     {
-        public void SendRunningServices(RunningServices message)
+        public void SendRunningProcesses(RunningProcesses message)
         {
             var context = GlobalHost.ConnectionManager.GetHubContext<ThirstHub>();
 
-            context.Clients.All.getRunningServices(message);
+            context.Clients.All.getRunningProcesses(message);
         }
 
-        public void InspectServices(InspectServices message)
+        public void InspectProcesses(InspectProcesses message)
         {
             SystemActors.MasterActor.Tell(message, ActorRefs.Nobody);
         }

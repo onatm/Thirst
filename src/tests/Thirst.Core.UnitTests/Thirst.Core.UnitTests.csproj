@@ -69,14 +69,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Agent\When_handling_inspect_services_message\with_zero_expected_service.cs" />
-    <Compile Include="Agent\When_handling_inspect_services_message\with_more_than_one_expected_services\and_some_of_them_are_present.cs" />
-    <Compile Include="Agent\When_handling_inspect_services_message\with_more_than_one_expected_services\and_none_of_them_is_present.cs" />
-    <Compile Include="Agent\When_handling_inspect_services_message\with_more_than_one_expected_services\and_all_of_them_are_present.cs" />
-    <Compile Include="Agent\When_handling_inspect_services_message\with_one_expected_service\and_it_is_not_present.cs" />
-    <Compile Include="Agent\When_handling_inspect_services_message\with_one_expected_service\and_it_is_present.cs" />
-    <Compile Include="Master\When_handling_inspect_services_message.cs" />
-    <Compile Include="Master\When_handling_running_services_message.cs" />
+    <Compile Include="Agent\When_handling_inspect_processes_message\with_zero_expected_process.cs" />
+    <Compile Include="Agent\When_handling_inspect_processes_message\with_more_than_one_expected_processes\and_some_of_them_are_present.cs" />
+    <Compile Include="Agent\When_handling_inspect_processes_message\with_more_than_one_expected_processes\and_none_of_them_is_present.cs" />
+    <Compile Include="Agent\When_handling_inspect_processes_message\with_more_than_one_expected_processes\and_all_of_them_are_present.cs" />
+    <Compile Include="Agent\When_handling_inspect_processes_message\with_one_expected_process\and_it_is_not_present.cs" />
+    <Compile Include="Agent\When_handling_inspect_processes_message\with_one_expected_process\and_it_is_present.cs" />
+    <Compile Include="Master\When_handling_inspect_processes_message.cs" />
+    <Compile Include="Master\When_handling_running_processes_message.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

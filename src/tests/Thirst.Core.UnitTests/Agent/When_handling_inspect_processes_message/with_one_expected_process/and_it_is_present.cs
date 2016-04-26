@@ -9,13 +9,13 @@ using Thirst.Core.Actors;
 using Thirst.Core.Messages;
 using Thirst.Core.Services;
 
-namespace Thirst.Core.UnitTests.When_handling_inspect_services_message.with_one_expected_service
+namespace Thirst.Core.UnitTests.Agent.When_handling_inspect_processes_message.with_one_expected_process
 {
     [TestFixture]
     public class and_it_is_present : TestKit
     {
         private const string ExpectedProcessName = "ExpectedProcessName";
-        private RunningServices runningServices;
+        private RunningProcesses runningProcesses;
 
         [TestFixtureSetUp]
         public void TestFixtureSetUp()
@@ -26,33 +26,33 @@ namespace Thirst.Core.UnitTests.When_handling_inspect_services_message.with_one_
 
             var agentActor = Sys.ActorOf(Props.Create(() => new AgentActor(mockProcessService.Object)));
 
-            agentActor.Tell(new InspectServices(new List<string> { ExpectedProcessName }));
+            agentActor.Tell(new InspectProcesses(new List<string> { ExpectedProcessName }));
 
-            runningServices = ExpectMsg<RunningServices>();
+            runningProcesses = ExpectMsg<RunningProcesses>();
         }
 
         [Test]
-        public void it_should_send_running_services_message()
+        public void it_should_send_running_processes_message()
         {
-            runningServices.Should().NotBeNull();
+            runningProcesses.Should().NotBeNull();
         }
 
         [Test]
         public void the_message_should_have_host_name()
         {
-            runningServices.HostName.Should().NotBeNullOrEmpty();
+            runningProcesses.HostName.Should().NotBeNullOrEmpty();
         }
 
         [Test]
-        public void the_message_should_have_correct_running_services_count()
+        public void the_message_should_have_correct_running_processes_count()
         {
-            runningServices.ServiceNames.Count().Should().Be(1);
+            runningProcesses.ProcessNames.Count().Should().Be(1);
         }
 
         [Test]
-        public void the_message_should_have_expected_service_name()
+        public void the_message_should_have_expected_process_name()
         {
-            runningServices.ServiceNames.Contains(ExpectedProcessName).Should().BeTrue();
+            runningProcesses.ProcessNames.Contains(ExpectedProcessName).Should().BeTrue();
         }
     }
 }

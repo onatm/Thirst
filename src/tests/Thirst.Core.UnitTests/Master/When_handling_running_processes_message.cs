@@ -10,7 +10,7 @@ using Thirst.Core.Messages;
 namespace Thirst.Core.UnitTests.Master
 {
     [TestFixture]
-    public class When_handling_running_services_message : TestKit
+    public class When_handling_running_processes_message : TestKit
     {
         private readonly Mock<IThirstHub> mockThirstHub = new Mock<IThirstHub>();
 
@@ -19,15 +19,15 @@ namespace Thirst.Core.UnitTests.Master
         {
             var masterActor = Sys.ActorOf(Props.Create(() => new MasterActor(ActorRefs.Nobody, mockThirstHub.Object)));
 
-            masterActor.Tell(new RunningServices(string.Empty, new List<string>()));
+            masterActor.Tell(new RunningProcesses(string.Empty, new List<string>()));
             
             ExpectNoMsg(100);
         }
 
         [Test]
-        public void it_should_call_SendRunningServices_method()
+        public void it_should_call_SendRunningProcesses_method()
         {
-            mockThirstHub.Verify(x => x.SendRunningServices(It.IsAny<RunningServices>()));
+            mockThirstHub.Verify(x => x.SendRunningProcesses(It.IsAny<RunningProcesses>()));
         }
     }
 }

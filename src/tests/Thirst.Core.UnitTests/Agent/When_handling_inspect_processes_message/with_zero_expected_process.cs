@@ -9,7 +9,7 @@ using Thirst.Core.Actors;
 using Thirst.Core.Messages;
 using Thirst.Core.Services;
 
-namespace Thirst.Core.UnitTests.When_handling_inspect_services_message
+namespace Thirst.Core.UnitTests.Agent.When_handling_inspect_processes_message
 {
     [TestFixture(true)]
     [TestFixture(false)]
@@ -17,7 +17,7 @@ namespace Thirst.Core.UnitTests.When_handling_inspect_services_message
     {
         private readonly IEnumerable<string> serviceNames;
 
-        private RunningServices runningServices;
+        private RunningProcesses runningProcesses;
 
         public When_handling_empty_inspect_services_message(bool isNull = false)
         {
@@ -36,27 +36,27 @@ namespace Thirst.Core.UnitTests.When_handling_inspect_services_message
 
             var agentActor = Sys.ActorOf(Props.Create(() => new AgentActor(mockProcessService.Object)));
 
-            agentActor.Tell(new InspectServices(serviceNames));
+            agentActor.Tell(new InspectProcesses(serviceNames));
 
-            runningServices = ExpectMsg<RunningServices>();
+            runningProcesses = ExpectMsg<RunningProcesses>();
         }
 
         [Test]
-        public void it_should_send_running_services_message()
+        public void it_should_send_running_processes_message()
         {
-            runningServices.Should().NotBeNull();
+            runningProcesses.Should().NotBeNull();
         }
 
         [Test]
         public void the_message_should_have_host_name()
         {
-            runningServices.HostName.Should().NotBeNullOrEmpty();
+            runningProcesses.HostName.Should().NotBeNullOrEmpty();
         }
 
         [Test]
-        public void the_message_should_have_correct_running_services_count()
+        public void the_message_should_have_correct_running_processes_count()
         {
-            runningServices.ServiceNames.Count().Should().Be(0);
+            runningProcesses.ProcessNames.Count().Should().Be(0);
         }
     }
 }

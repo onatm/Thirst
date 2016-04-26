@@ -16,14 +16,14 @@ namespace Thirst.Core.Actors
 
             Context.Watch(masterBroadcaster);
 
-            Receive<InspectServices>(m =>
+            Receive<InspectProcesses>(m =>
             {
                 masterBroadcaster.Tell(m);
             });
 
-            Receive<RunningServices>(m =>
+            Receive<RunningProcesses>(m =>
             {
-                this.thirstHub.SendRunningServices(m);
+                this.thirstHub.SendRunningProcesses(m);
             });
         }
 
