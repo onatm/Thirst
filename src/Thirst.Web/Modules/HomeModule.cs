@@ -6,7 +6,7 @@ namespace Thirst.Web.Modules
     {
         public HomeModule()
         {
-            Get["/"] = _ => View["Index"];
+            Get["/"] = _ => View["app/index.html"];
         }
     }
 }

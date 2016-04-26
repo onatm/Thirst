@@ -1,12 +1,10 @@
-﻿@using System
-@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Thist Web - @ViewBag.Title</title>
+    <title>Thist Web - Thirst process monitoring tool</title>
     <link href="/Content/bootstrap.min.css" rel="stylesheet">
     <link href="/Content/site.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -35,16 +33,29 @@
         </div>
     </nav>
     <div class="container">
-        @RenderBody()
+        <p class="lead">Thirst process monitoring tool</p>
     </div>
     <footer class="footer">
         <div class="container">
-            <p class="text-muted">&copy; @DateTime.Now.Year - Thirst process monitoring tool</p>
+            <p class="text-muted">&copy; 2016 - Thirst process monitoring tool</p>
         </div>
     </footer>
     <script src="Scripts/jquery-1.9.1.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/jquery.signalR-2.2.0.min.js"></script>
-    @RenderSection("Scripts", false)
+    <script src="signalr/hubs"></script>
+    <script type="text/javascript">
+        $(function () {
+            var thirstHub = $.connection.thirstHub;
+
+            thirstHub.client.getRunningProcesses = function (message) {
+                console.log(message);
+            };
+
+            $.connection.hub.start().done(function () {
+                thirstHub.server.inspectProcesses({ ProcessNames: ["Thirst.Agent"] });
+            });
+        });
+    </script>
 </body>
 </html>

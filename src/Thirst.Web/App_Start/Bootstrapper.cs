@@ -9,14 +9,8 @@ namespace Thirst.Web
         {
             base.ConfigureConventions(conventions);
 
-            conventions.ViewLocationConventions.Clear();
-
-            conventions.ViewLocationConventions.Add((viewname, model, context) =>
-                string.Concat("Views/", context.ModuleName + "/" + context.ModulePath, viewname));
-
-            conventions.ViewLocationConventions.Add((viewName, model, context) => string.Concat("Views/", viewName));
-
             conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("Scripts", @"Scripts"));
+            conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("Content", @"Content"));
         }
     }
 }
