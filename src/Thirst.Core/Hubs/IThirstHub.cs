@@ -5,5 +5,7 @@ namespace Thirst.Core.Hubs
     public interface IThirstHub
     {
         void SendRunningServices(RunningServices message);
+
+        void InspectServices(InspectServices message);
     }
 }

@@ -15,12 +15,12 @@
         $(function () {
             var thirstHub = $.connection.thirstHub;
 
-            thirstHub.client.getRunningServices = function (message) {
+            thirstHub.client.getRunningServices = function (message){
                 console.log(message);
             };
 
             $.connection.hub.start().done(function () {
-                //thirstHub.server.inspectServices();
+                thirstHub.server.inspectServices({ ServiceNames: ["Thirst.Agent"] });
             });
         });
     </script>
