@@ -20,6 +20,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".tests", ".tests", "{383595
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thirst.Core.UnitTests", "src\tests\Thirst.Core.UnitTests\Thirst.Core.UnitTests.csproj", "{FBB15B03-AD04-4CF0-B39B-6434C2CE0FCA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".items", ".items", "{C9BBB3F7-99F4-409F-84F7-CD81867533D1}"
+	ProjectSection(SolutionItems) = preProject
+		bower.json = bower.json
+		bower.mapper.json = bower.mapper.json
+		gruntfile.js = gruntfile.js
+		package.json = package.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

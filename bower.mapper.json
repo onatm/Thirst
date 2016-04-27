@@ -1,0 +1,20 @@
+{
+    "jquery": {
+        "js": "dist/jquery.min.js"
+    },
+    "bootstrap": {
+        "js": "dist/js/bootstrap.min.js",
+        "css": [
+            "dist/css/bootstrap.min.css",
+            "dist/css/bootstrap-theme.min.css"
+        ],
+        "fonts": [
+            "dist/fonts/glyphicons-halflings-regular.eot",
+            "dist/fonts/glyphicons-halflings-regular.ttf",
+            "dist/fonts/glyphicons-halflings-regular.woff"
+        ]
+    },
+    "signalr": {
+        "js": "jquery.signalR.min.js"
+    }
+}

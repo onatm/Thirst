@@ -9,8 +9,7 @@ namespace Thirst.Web
         {
             base.ConfigureConventions(conventions);
 
-            conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("Scripts", @"Scripts"));
-            conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("Content", @"Content"));
+            conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("app", @"app"));
         }
     }
 }
