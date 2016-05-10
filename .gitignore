@@ -5,6 +5,9 @@
 .grunt
 _SpecRunner.html
 
+# Typescript
+.tscache
+
 # User-specific files
 *.suo
 *.user

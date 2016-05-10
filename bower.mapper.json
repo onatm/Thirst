@@ -2,6 +2,9 @@
     "jquery": {
         "js": "dist/jquery.min.js"
     },
+    "angular": {
+        "js": "angular.min.js"
+    },
     "bootstrap": {
         "js": "dist/js/bootstrap.min.js",
         "css": [

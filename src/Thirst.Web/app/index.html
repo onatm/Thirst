@@ -13,7 +13,7 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body ng-app="ThirstModule">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -32,7 +32,7 @@
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container" ng-controller="MainController">
         <p class="lead">Thirst process monitoring tool</p>
     </div>
     <footer class="footer">
@@ -41,19 +41,7 @@
         </div>
     </footer>
     <script src="app/js/libs.js"></script>
+    <script src="app/js/main.js"></script>
     <script src="signalr/hubs"></script>
-    <script type="text/javascript">
-        $(function () {
-            var thirstHub = $.connection.thirstHub;
-
-            thirstHub.client.getRunningProcesses = function (message) {
-                console.log(message);
-            };
-
-            $.connection.hub.start().done(function () {
-                thirstHub.server.inspectProcesses({ ProcessNames: ["Thirst.Agent"] });
-            });
-        });
-    </script>
 </body>
 </html>

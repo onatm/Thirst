@@ -28,6 +28,15 @@ module.exports = function (grunt) {
                 dest: "<%= config.dist %>" + "css/site.css"
             }
         },
+        ts: {
+            default: {
+                src: ["<%= config.app %>" + "scripts/**/*.ts"],
+                out: "<%= config.dist %>" + "js/main.js",
+                options: {
+                    sourceMap: false
+                }
+            }
+        },
         "bower-mapper": {
             options: {
                 mapper: "../../bower.mapper.json",
@@ -44,7 +53,7 @@ module.exports = function (grunt) {
                 dest: "<%= config.dist %>" + "fonts"
             },
             js: {
-                src: ["jquery", "bootstrap", "signalr"],
+                src: ["jquery", "angular", "bootstrap", "signalr"],
                 dest: "<%= config.dist %>" + "js/libs.js",
                 concat: "<%= config.concat %>",
                 useMin: "<%= config.useMin %>"
@@ -54,10 +63,11 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks("grunt-ts");
     grunt.loadNpmTasks('bower-mapper');
 
     grunt.registerTask('default', ['build']);
-    grunt.registerTask('build', ['clean', 'bower-mapper', 'copy']);
+    grunt.registerTask('build', ['clean', 'bower-mapper', 'ts', 'copy']);
 
     process.chdir(config.cwd);
 };
