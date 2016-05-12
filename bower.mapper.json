@@ -5,6 +5,9 @@
     "angular": {
         "js": "angular.min.js"
     },
+    "lodash": {
+        "js": "dist/lodash.min.js"
+    },
     "bootstrap": {
         "js": "dist/js/bootstrap.min.js",
         "css": [

@@ -53,7 +53,7 @@ module.exports = function (grunt) {
                 dest: "<%= config.dist %>" + "fonts"
             },
             js: {
-                src: ["jquery", "angular", "bootstrap", "signalr"],
+                src: ["jquery", "angular", "lodash", "bootstrap", "signalr"],
                 dest: "<%= config.dist %>" + "js/libs.js",
                 concat: "<%= config.concat %>",
                 useMin: "<%= config.useMin %>"

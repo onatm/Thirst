@@ -34,6 +34,14 @@
     </nav>
     <div class="container" ng-controller="MainController">
         <p class="lead">Thirst process monitoring tool</p>
+        <div class="row" ng-repeat="runningProcess in runningProcesses">
+            <div class="col-sm-3">
+                <h3>{{ runningProcess.HostName }}</h3>
+                <ul ng-repeat="processName in runningProcess.ProcessNames">
+                    <li>{{ processName }}</li>
+                </ul>
+            </div>
+        </div>
     </div>
     <footer class="footer">
         <div class="container">
