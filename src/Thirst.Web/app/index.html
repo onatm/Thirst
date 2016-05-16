@@ -32,8 +32,25 @@
             </div>
         </div>
     </nav>
-    <div class="container" ng-controller="MainController">
+    <div class="container" ng-controller="MainController as mc">
         <p class="lead">Thirst process monitoring tool</p>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input type="file" class="form-control" file-model="configFile">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="mc.uploadConfigFile()">Upload</button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-success" type="button" ng-disabled="isConfigured" ng-click="mc.inspectProcesses()">Inspect Processes</button>
+                    </span>
+                </div>
+            </div>
+        </div>
         <div class="row" ng-repeat="runningProcess in runningProcesses">
             <div class="col-sm-3">
                 <h3>{{ runningProcess.HostName }}</h3>

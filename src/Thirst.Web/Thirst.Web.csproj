@@ -124,6 +124,7 @@
     <Compile Include="App_Start\WebSettings.cs" />
     <Compile Include="App_Start\HostService.cs" />
     <Compile Include="Hubs\ThirstHub.cs" />
+    <Compile Include="Modules\ConfigModule.cs" />
     <Compile Include="Modules\HomeModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -153,7 +154,10 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\scripts\application.ts" />
     <TypeScriptCompile Include="app\scripts\controllers\mainController.ts" />
+    <TypeScriptCompile Include="app\scripts\mainScope.ts" />
+    <TypeScriptCompile Include="app\scripts\directives\fileModelDirective.ts" />
     <TypeScriptCompile Include="app\scripts\hubs.ts" />
+    <TypeScriptCompile Include="app\scripts\services\configUploadService.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-component-router.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
